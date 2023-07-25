@@ -15,13 +15,21 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Scanner;
 
 public class Main {
     public static void main(String[] args) {
 
 
-        String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002";
+        String query = "https://www.cbr.ru/scripts/XML_daily.asp?";
 
+        StringBuilder url = new StringBuilder();
+        url.append(query);
+
+        System.out.println("Введите дату (Формат: date_req=02/03/2002):");
+        Scanner sc = new Scanner(System.in);
+        url.append(sc.nextLine());
+        query = url.toString();
 
         HttpURLConnection connection = null;
 

@@ -31,6 +31,9 @@ public class Main {
         url.append(sc.nextLine());
         query = url.toString();
 
+        System.out.println("Введите валюту (Формат: AUD || GBP || BYR):");
+        String valuta = sc.nextLine();
+
         HttpURLConnection connection = null;
 
         try {
@@ -97,7 +100,7 @@ public class Main {
 
                             }
                         }
-
+                        if(currency.getCharCode().equals(valuta))
                         currencyListOut.add(currency);
 
                     }

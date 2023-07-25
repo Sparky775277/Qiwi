@@ -18,12 +18,10 @@ import java.util.List;
 
 public class Main {
     public static void main(String[] args) {
-        /*StringBuilder input = new StringBuilder();
-        Scanner sc = new Scanner(System.in);
-        input.append(sc.nextLine());*/
+
 
         String query = "https://www.cbr.ru/scripts/XML_daily.asp?date_req=02/03/2002";
-        //String query = input.toString();
+
 
         HttpURLConnection connection = null;
 
@@ -42,13 +40,6 @@ public class Main {
             if (HttpURLConnection.HTTP_OK == connection.getResponseCode()) {
                 BufferedReader in = new BufferedReader(new InputStreamReader(connection.getInputStream(), "cp1251"));
 
-
-
-
-
-                /*DocumentBuilderFactory factory = DocumentBuilderFactory.newInstance();
-                DocumentBuilder builder = factory.newDocumentBuilder();
-                Document document = builder.parse(String.valueOf(new InputStreamReader(connection.getInputStream())));*/
 
                 String line;
                 while ((line = in.readLine()) != null) {
@@ -79,7 +70,7 @@ public class Main {
                         NodeList childNodes = currencyElement.getChildNodes();
 
                         for (int j = 0; j < childNodes.getLength(); j++) {
-                            if (childNodes.item(i).getNodeType() == Node.ELEMENT_NODE) {
+                            if (childNodes.item(j).getNodeType() == Node.ELEMENT_NODE) {
                                 Element childElement = (Element) childNodes.item(j);
 
                                 switch (childElement.getNodeName()) {
@@ -90,7 +81,7 @@ public class Main {
                                     break;
 
                                     case "Value": {
-                                        currency.setValue(Double.valueOf(childElement.getTextContent()));
+                                        currency.setValue(childElement.getTextContent());
 
                                     }
                                     break;

@@ -18,13 +18,13 @@ public class Currency {
     private String ID;
 
 
-    private Double Value;
+    private String Value;
 
-    public Double getValue() {
+    public String getValue() {
         return Value;
     }
 
-    public void setValue(Double value) {
+    public void setValue(String value) {
         Value = value;
     }
 
@@ -89,7 +89,7 @@ public class Currency {
 
     @Override
     public String toString() {
-        return  "CharCode='" + CharCode + '\'' +
+        return "CharCode='" + CharCode + '\'' +
                 ", Value=" + Value
                 ;
     }
